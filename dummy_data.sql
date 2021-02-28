@@ -22,17 +22,17 @@ INSERT INTO course(code, points, description) VALUES ('COMS W1004', 3, 'A genera
 INSERT INTO course(code, points, description) VALUES ('MATH UN1201', 3, 'Prerequisites: MATH UN1101 or the equivalent Vectors in dimensions 2 and 3, complex numbers and the complex exponential function with applications to differential equations, Cramers rule, vector-valued functions of one variable, scalar-valued functions of several variables, partial derivatives, gradients, surfaces, optimization, the method of Lagrange multipliers.');
 INSERT INTO course(code, points, description) VALUES ('MECE E3301', 3, 'Classical thermodynamics. Basic properties and concepts, thermodynamic properties of pure substances, equation of state, work, heat, the first and second laws for flow and nonflow processes, energy equations, entropy, and irreversibility. Introduction to power and refrigeration cycles.');
 
-INSERT INTO section(course_id, semester, start_time, end_time, capacity) VALUES ('MECE E4211',  '2020_3', '10:10', '11:25', 125);
-INSERT INTO section(course_id, semester, start_time, end_time, capacity) VALUES ('COMS W3261',  '2020_3', '12:40', '13:55', 150);
-INSERT INTO section(course_id, semester, start_time, end_time, capacity) VALUES ('COMS W3261',  '2020_3', '08:40', '9:55',  150);
-INSERT INTO section(course_id, semester, start_time, end_time, capacity) VALUES ('APMA E2101',  '2020_3', '18:40', '19:55', 100);
-INSERT INTO section(course_id, semester, start_time, end_time, capacity) VALUES ('COMS W4156',  '2021_1', '12:10', '14:10', 70);
-INSERT INTO section(course_id, semester, start_time, end_time, capacity) VALUES ('BIOL UN3031', '2021_1', '13:40', '15:40', 60);
-INSERT INTO section(course_id, semester, start_time, end_time, capacity) VALUES ('MECE E3301',  '2020_1', '10:10', '11:25', 125);
-INSERT INTO section(course_id, semester, start_time, end_time, capacity) VALUES ('MATH UN1201', '2020_1', '12:40', '13:55', 200);
-INSERT INTO section(course_id, semester, start_time, end_time, capacity) VALUES ('COMS W1004',  '2019_1', '08:40', '9:55',  350);
-INSERT INTO section(course_id, semester, start_time, end_time, capacity) VALUES ('COMS W3134',  '2019_3', '18:40', '19:55', 300);
-INSERT INTO section(course_id, semester, start_time, end_time, capacity) VALUES ('COMS W3157',  '2020_1', '12:10', '14:10', 250);
+INSERT INTO section(course_id, semester, start_time, end_time, capacity) VALUES (5,  '2020_3', '10:10', '11:25', 125);
+INSERT INTO section(course_id, semester, start_time, end_time, capacity) VALUES (4,  '2020_3', '12:40', '13:55', 150);
+INSERT INTO section(course_id, semester, start_time, end_time, capacity) VALUES (4,  '2020_3', '08:40', '9:55',  150);
+INSERT INTO section(course_id, semester, start_time, end_time, capacity) VALUES (1,  '2020_3', '18:40', '19:55', 100);
+INSERT INTO section(course_id, semester, start_time, end_time, capacity) VALUES (3,  '2021_1', '12:10', '14:10', 70);
+INSERT INTO section(course_id, semester, start_time, end_time, capacity) VALUES (2,  '2021_1', '13:40', '15:40', 60);
+INSERT INTO section(course_id, semester, start_time, end_time, capacity) VALUES (10, '2020_1', '10:10', '11:25', 125);
+INSERT INTO section(course_id, semester, start_time, end_time, capacity) VALUES (9,  '2020_1', '12:40', '13:55', 200);
+INSERT INTO section(course_id, semester, start_time, end_time, capacity) VALUES (8,  '2019_1', '08:40', '9:55',  350);
+INSERT INTO section(course_id, semester, start_time, end_time, capacity) VALUES (7,  '2019_3', '18:40', '19:55', 300);
+INSERT INTO section(course_id, semester, start_time, end_time, capacity) VALUES (6,  '2020_1', '12:10', '14:10', 250);
 
 INSERT INTO instructor(uni, full_name) VALUES ('avh0001', 'Abraham Van Helsing');
 INSERT INTO instructor(uni, full_name) VALUES ('hpm0002', 'Henry Philip McCoy');
@@ -184,9 +184,28 @@ INSERT INTO waitlisted(student_id, section_id) VALUES (4,3);
 INSERT INTO waitlisted(student_id, section_id) VALUES (11,8);
 INSERT INTO waitlisted(student_id, section_id) VALUES (7,6);
 
-INSERT INTO refers_to(review_id, section_id) VALUES ( , );
+INSERT INTO refers_to(review_id, section_id) VALUES (1,8);
+INSERT INTO refers_to(review_id, section_id) VALUES (2,10);
+INSERT INTO refers_to(review_id, section_id) VALUES (3,10);
+INSERT INTO refers_to(review_id, section_id) VALUES (4,11);
+INSERT INTO refers_to(review_id, section_id) VALUES (5,11);
+INSERT INTO refers_to(review_id, section_id) VALUES (6,11);
+INSERT INTO refers_to(review_id, section_id) VALUES (7,9);
+INSERT INTO refers_to(review_id, section_id) VALUES (8,6);
+INSERT INTO refers_to(review_id, section_id) VALUES (9,4);
+INSERT INTO refers_to(review_id, section_id) VALUES (10,6);
 
-INSERT INTO teaches(instructor_id, section_id) VALUES ( , );
+INSERT INTO teaches(instructor_id, section_id) VALUES (2,1);
+INSERT INTO teaches(instructor_id, section_id) VALUES (3,2);
+INSERT INTO teaches(instructor_id, section_id) VALUES (4,3);
+INSERT INTO teaches(instructor_id, section_id) VALUES (1,4);
+INSERT INTO teaches(instructor_id, section_id) VALUES (7,5);
+INSERT INTO teaches(instructor_id, section_id) VALUES (6,6);
+INSERT INTO teaches(instructor_id, section_id) VALUES (8,7);
+INSERT INTO teaches(instructor_id, section_id) VALUES (9,8);
+INSERT INTO teaches(instructor_id, section_id) VALUES (5,9);
+INSERT INTO teaches(instructor_id, section_id) VALUES (10,10);
+INSERT INTO teaches(instructor_id, section_id) VALUES (4,11);
 
 INSERT INTO prerequisites(course_code, prereq_code) VALUES ('APMA E2101', 'MATH UN1201');
 INSERT INTO prerequisites(course_code, prereq_code) VALUES ('COMS W4156', 'COMS W3157');
