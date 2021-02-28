@@ -82,9 +82,52 @@ INSERT INTO major(title) VALUES ('Statistics');
 INSERT INTO major(title) VALUES ('History');
 INSERT INTO major(title) VALUES ('Mathematics');
 
-INSERT INTO writes(author_id, review_id) ('','');
+INSERT INTO writes(author_id, review_id) VALUES (1, 1);
+INSERT INTO writes(author_id, review_id) VALUES (2, 2);
+INSERT INTO writes(author_id, review_id) VALUES (3, 3);
+INSERT INTO writes(author_id, review_id) VALUES (4, 4);
+INSERT INTO writes(author_id, review_id) VALUES (5, 5);
+INSERT INTO writes(author_id, review_id) VALUES (6, 6);
+INSERT INTO writes(author_id, review_id) VALUES (7, 7);
+INSERT INTO writes(author_id, review_id) VALUES (8, 8);
+INSERT INTO writes(author_id, review_id) VALUES (9, 9);
+INSERT INTO writes(author_id, review_id) VALUES (10, 10);
 
+INSERT INTO enrolls_in(student_id, school_id) VALUES (1, 3);
+INSERT INTO enrolls_in(student_id, school_id) VALUES (2, 1);
+INSERT INTO enrolls_in(student_id, school_id) VALUES (3, 1);
+INSERT INTO enrolls_in(student_id, school_id) VALUES (4, 2);
+INSERT INTO enrolls_in(student_id, school_id) VALUES (5, 2);
+INSERT INTO enrolls_in(student_id, school_id) VALUES (6, 6);
+INSERT INTO enrolls_in(student_id, school_id) VALUES (7, 4);
+INSERT INTO enrolls_in(student_id, school_id) VALUES (8, 5);
+INSERT INTO enrolls_in(student_id, school_id) VALUES (9, 8);
+INSERT INTO enrolls_in(student_id, school_id) VALUES (10, 9);
+INSERT INTO enrolls_in(student_id, school_id) VALUES (11, 1);
+INSERT INTO enrolls_in(student_id, school_id) VALUES (12, 1);
 
+INSERT INTO contains(school_id, department_id) VALUES (1, 2);
+INSERT INTO contains(school_id, department_id) VALUES (1, 6);
+INSERT INTO contains(school_id, department_id) VALUES (1, 7);
+INSERT INTO contains(school_id, department_id) VALUES (1, 8);
+INSERT INTO contains(school_id, department_id) VALUES (1, 9);
+INSERT INTO contains(school_id, department_id) VALUES (1, 10);
+INSERT INTO contains(school_id, department_id) VALUES (2, 1);
+INSERT INTO contains(school_id, department_id) VALUES (2, 3);
+INSERT INTO contains(school_id, department_id) VALUES (2, 4);
+INSERT INTO contains(school_id, department_id) VALUES (4, 5);
 
+INSERT INTO offers(department_id, major_id) VALUES (1,4);
+INSERT INTO offers(department_id, major_id) VALUES (1,5);
+INSERT INTO offers(department_id, major_id) VALUES (2,6);
+INSERT INTO offers(department_id, major_id) VALUES (2,7);
+INSERT INTO offers(department_id, major_id) VALUES (3,1);
+INSERT INTO offers(department_id, major_id) VALUES (3,3);
+INSERT INTO offers(department_id, major_id) VALUES (4,2);
+INSERT INTO offers(department_id, major_id) VALUES (6,8);
+INSERT INTO offers(department_id, major_id) VALUES (7,12);
+INSERT INTO offers(department_id, major_id) VALUES (8,11);
+INSERT INTO offers(department_id, major_id) VALUES (9,9);
+INSERT INTO offers(department_id, major_id) VALUES (10,10);
 
 
