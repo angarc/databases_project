@@ -45,7 +45,16 @@ INSERT INTO instructor(uni, full_name) VALUES ('ia0008', 'Isaac Asimov');
 INSERT INTO instructor(uni, full_name) VALUES ('ab0009', 'Ameya Burrows');
 INSERT INTO instructor(uni, full_name) VALUES ('fp0011', 'Felix Pletscher');
 
-INSERT INTO review(course_id, instructor_id, content) VALUES ('MATH UN1201', 'ia0008', "I took this class online and it was very manageable. The exams were open note which I greatly appreciated and it made the class a lot easier to do well in. He also drops one homework assignment. I recommend this class both if you want to learn calc iii thoroughly but also for a GPA boost! Also, I'm taking this online so if you take this in person it might be different (especially about the GPA boost part) however he is a really great teacher so I still recommend him for an in-person class.");
+INSERT INTO review(course_id, instructor_id, content) VALUES (9, 8, "I took this class online and it was very manageable. The exams were open note which I greatly appreciated and it made the class a lot easier to do well in. He also drops one homework assignment. I recommend this class both if you want to learn calc iii thoroughly but also for a GPA boost! Also, I'm taking this online so if you take this in person it might be different (especially about the GPA boost part) however he is a really great teacher so I still recommend him for an in-person class.");
+INSERT INTO review(course_id, instructor_id, content) VALUES (7, 10, "My only qualm is that he doesn't give out a week by week syllabus coverage. Other than that, Hagrid is great at breaking down and explaining abstract concepts and very patient with our questions. His anecdotes and side tangents are usually relevant, even if they aren't they really lighten the atmosphere.");
+INSERT INTO review(course_id, instructor_id, content) VALUES (7, 10, "Feix Pletscher is not a good lecturer. The currciuculum glosses over a lot of topics. The motivation behind the data structures are not explained. Honestly, data structures at Columbia is a joke. For a class that is very important to computer science, you will feel like you can do the problem sets and maybe get As, but will end the class thinking that you did not learn anything. Connections between the data structures are not explained. A lot of times I had knowledge of the topic behind explained, but sat there and saw him explain it for the first time and thought that if this was my first time being exposed to what he is saying, I wouldn't have grasped the material.");
+INSERT INTO review(course_id, instructor_id, content) VALUES (6, 4, "The emphasis of the course is on trivial details of tracing code, pointers, syntactical sugar, and sockets programming. You end up learning a good deal of C/C++, and forgetting the same content in a matter of months. The lectures are clear, TA's are incredibly dedicated, and Ted cares a great deal, but the focus throughout the course is frankly petty. It's disappointing that so much talent and energy is dedicated to details that should be taken for granted.");
+INSERT INTO review(course_id, instructor_id, content) VALUES (6, 4, "Take this class seriously, and you'll learn a lot. Most importantly, you'll learn how to hold yourself accountable and have high standards. You'll get eaten alive in the competitive world of software without that kind of attitude. Ted Mosby is one of the most practical professors I've had at Columbia, and I'm glad I got knocked off my high horse by him and learned some perspective.");
+INSERT INTO review(course_id, instructor_id, content) VALUES (6, 4, "Ted's lectures go by quickly, so make sure you take notes quickly or have recordings for backup (usually if you ask the listserv for recordings, someone will have one). You want to use a combination of hand-written and typed notes because he talks fast and writes a lot of code and diagrams on the board.");
+INSERT INTO review(course_id, instructor_id, content) VALUES (8, 5, "Professor Kuznetsov is funny, approachable, caring, and knowledgeable about Java. His classes are very entertaining as he is an amazing lecturer, and one can tell that he really cares about his students a lot. I took this class during COVID, and he was very understanding and tried to make the class as least stressful as possible.");
+INSERT INTO review(course_id, instructor_id, content) VALUES (2, 6, "The worst class I have taken in any science department while at Columbia for four years. This teacher lectures solely from slides in a rote way pegged firmly behind her lectern. This would not be horrible were it not for the fact that her slides have mistakes, she cannot answer questions, she's unapprochable and unwilling to receive student criticism, her assignments are busy-work, and all her content-knowledge is derived from the text book.");
+INSERT INTO review(course_id, instructor_id, content) VALUES (1, 1, "The materials of this class can be read at home and your understanding of the whole course can be done in just a couple of hours. Professor Rebell might be a well-known scholar in his field, but as a professor, he is not that good at all. His class is often boring, and he lectures all the time. He asks a couple of questions to get students involved, but tries to hard.");
+INSERT INTO review(course_id, instructor_id, content) VALUES (2, 9, "I find Prof. Burrows' classroom delivery to be disorganized and hard to follow along with. I am not a fan of how she writes the lecture notes word-for-word on the blackboard, and she sometimes trails off while explaining something. There were several instances (e.g. first lecture of Paxos) when I went to the TA after class to clarify a concept, and was told by the TA that the professor made several mistakes when explaining the concept in class.");
 
 INSERT INTO school(name) VALUES ('Columbia College');
 INSERT INTO school(name) VALUES ('Barnard College');
@@ -117,17 +126,71 @@ INSERT INTO contains(school_id, department_id) VALUES (2, 3);
 INSERT INTO contains(school_id, department_id) VALUES (2, 4);
 INSERT INTO contains(school_id, department_id) VALUES (4, 5);
 
-INSERT INTO offers(department_id, major_id) VALUES (1,4);
-INSERT INTO offers(department_id, major_id) VALUES (1,5);
-INSERT INTO offers(department_id, major_id) VALUES (2,6);
-INSERT INTO offers(department_id, major_id) VALUES (2,7);
-INSERT INTO offers(department_id, major_id) VALUES (3,1);
-INSERT INTO offers(department_id, major_id) VALUES (3,3);
-INSERT INTO offers(department_id, major_id) VALUES (4,2);
-INSERT INTO offers(department_id, major_id) VALUES (6,8);
-INSERT INTO offers(department_id, major_id) VALUES (7,12);
-INSERT INTO offers(department_id, major_id) VALUES (8,11);
-INSERT INTO offers(department_id, major_id) VALUES (9,9);
-INSERT INTO offers(department_id, major_id) VALUES (10,10);
+INSERT INTO offers(department_id, major_id) VALUES (1, 4);
+INSERT INTO offers(department_id, major_id) VALUES (1, 5);
+INSERT INTO offers(department_id, major_id) VALUES (2, 6);
+INSERT INTO offers(department_id, major_id) VALUES (2, 7);
+INSERT INTO offers(department_id, major_id) VALUES (3, 1);
+INSERT INTO offers(department_id, major_id) VALUES (3, 3);
+INSERT INTO offers(department_id, major_id) VALUES (4, 2);
+INSERT INTO offers(department_id, major_id) VALUES (6, 8);
+INSERT INTO offers(department_id, major_id) VALUES (7, 12);
+INSERT INTO offers(department_id, major_id) VALUES (8, 11);
+INSERT INTO offers(department_id, major_id) VALUES (9, 9);
+INSERT INTO offers(department_id, major_id) VALUES (10, 10);
 
+INSERT INTO studies(student_id, major_id) VALUES (1,1);
+INSERT INTO studies(student_id, major_id) VALUES (2,1);
+INSERT INTO studies(student_id, major_id) VALUES (3,3);
+INSERT INTO studies(student_id, major_id) VALUES (4,4);
+INSERT INTO studies(student_id, major_id) VALUES (5,5);
+INSERT INTO studies(student_id, major_id) VALUES (6,2);
+INSERT INTO studies(student_id, major_id) VALUES (7,7);
+INSERT INTO studies(student_id, major_id) VALUES (8,8);
+INSERT INTO studies(student_id, major_id) VALUES (9,9);
+INSERT INTO studies(student_id, major_id) VALUES (10,11);
+INSERT INTO studies(student_id, major_id) VALUES (11,12);
+INSERT INTO studies(student_id, major_id) VALUES (12,12);
+
+INSERT INTO requires(major_id, course_code) VALUES (1, 'COMS W4156');
+INSERT INTO requires(major_id, course_code) VALUES (1, 'COMS W3261');
+INSERT INTO requires(major_id, course_code) VALUES (1, 'COMS W3157');
+INSERT INTO requires(major_id, course_code) VALUES (1, 'COMS W3134');
+INSERT INTO requires(major_id, course_code) VALUES (1, 'COMS W1004');
+INSERT INTO requires(major_id, course_code) VALUES (4, 'APMA E2101');
+INSERT INTO requires(major_id, course_code) VALUES (4, 'MATH UN1201');
+INSERT INTO requires(major_id, course_code) VALUES (6, 'BIOL UN3031');
+INSERT INTO requires(major_id, course_code) VALUES (2, 'MECE E3301');
+INSERT INTO requires(major_id, course_code) VALUES (2, 'MECE E4211');
+
+INSERT INTO takes(student_id, section_id) VALUES (1,2);
+INSERT INTO takes(student_id, section_id) VALUES (1,5);
+INSERT INTO takes(student_id, section_id) VALUES (2,12);
+INSERT INTO takes(student_id, section_id) VALUES (2,8);
+INSERT INTO takes(student_id, section_id) VALUES (2,3);
+INSERT INTO takes(student_id, section_id) VALUES (3,4);
+INSERT INTO takes(student_id, section_id) VALUES (6,1);
+INSERT INTO takes(student_id, section_id) VALUES (6,7);
+INSERT INTO takes(student_id, section_id) VALUES (4,8);
+INSERT INTO takes(student_id, section_id) VALUES (5,6);
+INSERT INTO takes(student_id, section_id) VALUES (7,9);
+INSERT INTO takes(student_id, section_id) VALUES (8,8);
+INSERT INTO takes(student_id, section_id) VALUES (12,8);
+
+INSERT INTO waitlisted(student_id, section_id) VALUES (2,5);
+INSERT INTO waitlisted(student_id, section_id) VALUES (9,10);
+INSERT INTO waitlisted(student_id, section_id) VALUES (4,2);
+INSERT INTO waitlisted(student_id, section_id) VALUES (4,3);
+INSERT INTO waitlisted(student_id, section_id) VALUES (11,8);
+INSERT INTO waitlisted(student_id, section_id) VALUES (7,6);
+
+INSERT INTO refers_to(review_id, section_id) VALUES ( , );
+
+INSERT INTO teaches(instructor_id, section_id) VALUES ( , );
+
+INSERT INTO prerequisites(course_code, prereq_code) VALUES ('APMA E2101', 'MATH UN1201');
+INSERT INTO prerequisites(course_code, prereq_code) VALUES ('COMS W4156', 'COMS W3157');
+INSERT INTO prerequisites(course_code, prereq_code) VALUES ('COMS W3157', 'COMS W3134');
+INSERT INTO prerequisites(course_code, prereq_code) VALUES ('COMS W3134', 'COMS W1004');
+INSERT INTO prerequisites(course_code, prereq_code) VALUES ('MECE E4211', 'MECE E3301');
 
