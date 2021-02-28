@@ -39,3 +39,14 @@ INSERT INTO school(name) VALUES ('Business');
 INSERT INTO school(name) VALUES ('Fu Foundation School of Engineering and Applied Science');
 INSERT INTO school(name) VALUES ('Public Health');
 INSERT INTO school(name) VALUES ('Vagelos College of Physicians and Surgeons');
+
+-- computer science
+INSERT INTO instructor(full_name) VALUES ('Paul Blaer');
+INSERT INTO instructor(full_name) VALUES ('Adam Cannon');
+INSERT INTO instructor(full_name) VALUES ('Jae Woo Lee');
+-- math
+INSERT INTO instructor(full_name) VALUES ('Lars Nielsen');
+INSERT INTO instructor(full_name) VALUES ('Mikhail Smirnov');
+INSERT INTO instructor(full_name) VALUES ('Peter Woit');
+    
+
