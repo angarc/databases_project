@@ -10,7 +10,7 @@ CREATE TABLE student (
 CREATE TABLE course (
     id SERIAL PRIMARY KEY,
     code varchar(20) UNIQUE NOT NULL,
-    points decimal(1,1) NOT NULL,
+    points decimal(2,1) NOT NULL,
     description text,
     CHECK (points >= 0 AND points <= 6)
 );
