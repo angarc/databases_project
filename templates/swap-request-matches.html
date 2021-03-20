@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+
+<h1 class='mt-5'>Potential Matches</h1>
+<p>If you see a match you like, you can email the student to initiate the section swap.</p>
+
+<hr/>
+
+{% if matches_amount > 0 %}
+  {% for request in matching_requests %}
+    <div class="card border-primary mb-3">
+      <div class="card-header">
+        <div class='title-and-actions'>
+          <strong>{{request['course_code']}} {{request['course_name']}}</strong>
+          <a href="mailto: {{request['email']}}" class='btn btn-info'>Email: {{request['full_name']}}</a>
+        </div>
+      </div>
+      <div class="card-body text-primary">
+        <p class="card-text"><strong>Instructor: </strong>{{request['instructor_name']}}</p>
+        <p class="card-text"><strong>Start Time: </strong>{{request['start_time']}}</p>
+        <p class="card-text"><strong>End Time: </strong>{{request['end_time']}}</p>
+        <p class="card-text"><strong>Requesting Earliest Start Time </strong>{{request['requested_earliest_time']}}</p>
+        <p class="card-text"><strong>Requesting Latest End Time </strong>{{request['requested_latest_time']}}</p>
+      </div>
+    </div>
+  {% endfor %}
+{% else %}
+  <p>No Matches Yes :(</p>
+{% endif %}
+
+{% endblock %}

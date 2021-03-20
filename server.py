@@ -70,8 +70,8 @@ if __name__ == "__main__":
 
     """
 
-    app.config['SECRET_KEY'] = 'fill this up with something secure'
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'put yours in here'
+    app.config['SECRET_KEY'] = ''
+    app.config['SQLALCHEMY_DATABASE_URI'] = ''
     db.init_app(app)
 
     from models import Student
@@ -80,8 +80,11 @@ if __name__ == "__main__":
 
     from views import views
     from auth import auth
+    from swap_requests import swap_requests
+
     app.register_blueprint(views, url_prefix='/')
     app.register_blueprint(auth, url_prefix='/')
+    app.register_blueprint(swap_requests, url_prefix='/swap-requests/')
 
     login_manager = LoginManager()
     login_manager.login_view = 'auth.login'

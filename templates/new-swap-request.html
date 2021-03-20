@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+
+<h1>New Requests</h1>
+
+<form method="POST" action='/swap-requests/save'>
+  <div class="form-group">
+    <label for="course_code">Course Code</label>
+    <input type="text" class="form-control" name='course_code' id="course_code" required>
+  </div>
+  <div class="form-group">
+    <label for="course_name">Course Name</label>
+    <input type="text" class="form-control" name='course_name' id="course_name" required>
+  </div>
+  <div class="form-group">
+    <label for="instructor">Instructor</label>
+    <input type="text" class="form-control" name='instructor' id="instructor" required>
+  </div>
+  <div class="form-group">
+    <label for="start_time">Start Time</label>
+    <input type="text" class="form-control" name='start_time' id="start_time" required>
+  </div>
+  <div class="form-group">
+    <label for="end_time">End Time</label>
+    <input type="text" class="form-control" name='end_time' id="end_time" required>
+  </div>
+  <div class="form-group">
+    <label for="requested_earliest_time">Requested Earliest Time</label>
+    <input type="text" class="form-control" name='requested_earliest_time' id="requested_earliest_time" required>
+  </div>
+  <div class="form-group">
+    <label for="requested_latest_time">Requested Latest Time</label>
+    <input type="text" class="form-control" name='requested_latest_time' id="requested_latest_time" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}

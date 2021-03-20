@@ -13,7 +13,7 @@ from flask import Flask, g
 #
 #     DATABASEURI = "postgresql://zy2431:123123@34.73.36.248/project1"
 #
-DATABASEURI = "fill this up with yours"
+DATABASEURI = ""
 
 # What's the difference???
 engine = create_engine(DATABASEURI)

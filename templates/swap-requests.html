@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+  <div class='title-and-actions mt-3'>
+    <h1>My Swap Requests</h1>
+    <a href='/swap-requests/new' class='btn btn-primary'>New Swap Request</a>
+  </div>
+
+  <hr/>
+
+  {% for request in swap_requests %}
+    <div class="card border-primary mb-3">
+      <div class="card-header">
+        <div class='title-and-actions'>
+          <strong>{{request['course_code']}} {{request['course_name']}}</strong>
+          <div>
+            <a href="/swap-requests/{{request['id']}}/matches" class='btn btn-warning'>Check for matches</a>
+            <a href="/swap-requests/{{request['id']}}/delete" class='btn btn-danger'>Delete</a>
+          </div>
+        </div>
+      </div>
+      <div class="card-body text-primary">
+        <p class="card-text"><strong>Instructor: </strong>{{request['instructor_name']}}</p>
+        <p class="card-text"><strong>Start Time: </strong>{{request['start_time']}}</p>
+        <p class="card-text"><strong>End Time: </strong>{{request['end_time']}}</p>
+        <p class="card-text"><strong>Requesting Earliest Start Time </strong>{{request['requested_earliest_time']}}</p>
+        <p class="card-text"><strong>Requesting Latest End Time </strong>{{request['requested_latest_time']}}</p>
+      </div>
+    </div>
+  {% endfor %}
+
+{% endblock %}
