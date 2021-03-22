@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}{{student['full_name']}} | Profile{% endblock %}
+
+{% block content %}
+  <h1 class='mt-3'>{{student['full_name']}}</h1>
+  <hr/>
+  <p>
+    <strong>Majors in: </strong>
+    {% for major in majors: %}
+      <span class='badge badge-primary'>{{major}}</span>
+    {% endfor %}
+  </p>
+
+  <p>
+    <strong>Currently Taking: </strong>
+    {% for course in courses: %}
+      <span class='badge badge-primary'>{{course}}</span>
+    {% endfor %}
+  </p>
+
+  <p><strong>UNI: </strong> {{student['uni']}}</p>
+
+{% endblock %}

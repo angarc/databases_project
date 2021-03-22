@@ -80,10 +80,12 @@ if __name__ == "__main__":
 
     from views import views
     from auth import auth
+    from students import students
     from swap_requests import swap_requests
 
     app.register_blueprint(views, url_prefix='/')
     app.register_blueprint(auth, url_prefix='/')
+    app.register_blueprint(students, url_prefix='/students/')
     app.register_blueprint(swap_requests, url_prefix='/swap-requests/')
 
     login_manager = LoginManager()

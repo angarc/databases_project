@@ -147,25 +147,17 @@ CREATE TABLE prerequisites (
 );
 
 -- ALTERATIONS (TRY NOT TO DELETE)
-DELETE FROM review;       
-DELETE FROM contains;     
-DELETE FROM section;      
+DELETE FROM review;
 DELETE FROM course;       
 DELETE FROM department;   
-DELETE FROM enrolls_in;   
 DELETE FROM instructor;   
 DELETE FROM major;        
-DELETE FROM offers;       
-DELETE FROM prerequisites;
-DELETE FROM refers_to;    
 DELETE FROM requires;     
-DELETE FROM school;       
-DELETE FROM student;      
+DELETE FROM student;
 DELETE FROM studies;      
 DELETE FROM takes;        
 DELETE FROM teaches;      
-DELETE FROM waitlisted;   
-DELETE FROM writes;
+DELETE FROM waitlisted;
 
 ALTER TABLE student ADD email VARCHAR(255) NOT NULL;
 ALTER TABLE student ADD password VARCHAR(255) NOT NULL;
@@ -184,3 +176,11 @@ CREATE TABLE swap_request (
     course_code varchar(255),
     FOREIGN KEY (student_id) references student
 );
+
+
+ALTER TABLE takes DROP CONSTRAINT takes_section_id_fkey;
+ALTER TABLE takes DROP COLUMN section_id;
+ALTER TABLE takes ADD course_id INT NOT NULL;
+ALTER TABLE takes ADD CONSTRAINT takes_course_id_fkey FOREIGN KEY (course_id) REFERENCES course(id);
+
+DROP TABLE section;
