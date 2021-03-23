@@ -8,7 +8,7 @@ courses = Blueprint('courses', __name__)
 def show(id):
   course = g.conn.execute("""SELECT * FROM course c WHERE id=%(id)s""", {'id': id}).first()
 
-  cursor = g.conn.execute("""SELECT * FROM review r WHERE course_id=%(id)s""")
+  cursor = g.conn.execute("""SELECT * FROM review r WHERE course_id=%(id)s""", {'id': id})
   reviews = []
   for record in cursor:
     reviews.append(record)

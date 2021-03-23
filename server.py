@@ -70,8 +70,8 @@ if __name__ == "__main__":
 
     """
 
-    app.config['SECRET_KEY'] = ''
-    app.config['SQLALCHEMY_DATABASE_URI'] = ''
+    app.config['SECRET_KEY'] = '7ars9t8s9t8dlnew3nn234587gth987&)^&^%P'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://ag4219:877492@34.73.36.248/project1'
     db.init_app(app)
 
     from models import Student

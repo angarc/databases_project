@@ -7,7 +7,7 @@ views = Blueprint('views', __name__)
 @views.route('/')
 @login_required
 def home():
-  cursor = g.conn.execute("SELECT * FROM student;")
+  cursor = g.conn.execute("SELECT * FROM student")
   students = []
   for record in cursor:
     students.append(record)

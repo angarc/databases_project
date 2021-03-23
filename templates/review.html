@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+<form method="POST" action="/instructors/{{id}}/save-review">
+  <h3 align="center">Login</h3>
+  <div class='form-group'>
+    <label for='instructor'>Review</label>
+    <p>Which course are you writing this review for?</p>
+    {% for course in courses: %}
+	    <input type='radio' name='course' value='{{course}}'> {{course}}<br/>
+    {% endfor %}
+    <textarea class='form-control' id='instructor' name='review' placeholder='Enter your review here'></textarea>
+    <br/>
+    <button class='btn btn-primary'>Submit Review</button>
+  </div>
+</form>
+
+{% endblock %}

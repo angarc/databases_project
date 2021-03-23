@@ -4,7 +4,7 @@ from flask_login import login_required, current_user
 
 instructors = Blueprint('instructors', __name__)
 
-@insturctors.route('/inst-<int:id>/')
+@instructors.route('/instructor-<int:id>/')
 def show(id):
   instructor = g.conn.execute("""SELECT * FROM instructor i WHERE id=%(id)s""", {'id': id}).first()
 
@@ -14,7 +14,7 @@ def show(id):
     courses.append(record['code'])
   cursor.close()
 
-  cursor = g.conn.execute("""SELECT * FROM review r WHERE instructor_id=%(id)s""")
+  cursor = g.conn.execute("""SELECT * FROM review r WHERE r.instructor_id=%(id)s""", {'id': id})
   reviews = []
   for record in cursor:
     reviews.append(record['content'])
@@ -24,10 +24,26 @@ def show(id):
 
 @instructors.route('/')
 def index():
-  cursor = g.conn.execute("""SELECT * FROM instructor""", {'id': id})
+  cursor = g.conn.execute("""SELECT * FROM instructor;""")
   instructors = []
   for record in cursor:
     instructors.append(record)
   cursor.close()
 
   return render_template('instructor_index.html', instructors=instructors)
+
+@instructors.route('/<int:id>/new-review')
+def new_review(id):
+    #courses=[]
+    #cursor = g.conn.execute("SELECT * FROM course WHERE instructor_id=%(id)s", {'id': id});
+    #for record in cursor:
+    #    courses.add(record['code'])
+    #cursor.close();
+
+    #return render_template('review.html', id=id, courses=courses)
+    pass
+
+@instructors.route('/<int:id>/save-review', methods=['POST'])
+def save_review(id):
+    #review = request.form.get('review')
+    pass
