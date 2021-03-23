@@ -8,10 +8,17 @@ students = Blueprint('students', __name__)
 @login_required
 def show(id):
   student = g.conn.execute("""SELECT * FROM student s WHERE id=%(id)s""", {'id': id}).first()
-  cursor = g.conn.execute("""SELECT * FROM major m, studies s WHERE s.major_id = m.id AND s.student_id=%(id)s""", {'id': id})
+
+  cursor = g.conn.execute("""SELECT * FROM enrolls_in e, school s WHERE e.school_id=s.id AND s.student_id=%(id)s""", {'id': id})
+  schools = []
+  for record in cursor:
+    schools.append(record['s.name'])
+  cursor.close()
+
+  cursor = g.conn.execute("""SELECT * FROM department d, offers o, major m, studies s WHERE d.id=o.department_id s.major_id = m.id AND s.student_id=%(id)s""", {'id': id})
   majors = []
   for record in cursor:
-    majors.append(record['title'])
+    majors.append((record['title'], record['department']))
   cursor.close()
 
   cursor = g.conn.execute("""SELECT * FROM course c, takes t WHERE c.id = t.course_id AND t.student_id=%(id)s""", {'id': id})
@@ -19,7 +26,7 @@ def show(id):
   for record in cursor:
     courses.append(record['code'])
   cursor.close()
-  return render_template('student.html', student=student, majors=majors, courses=courses)
+  return render_template('student.html', student=student, schools=schools, majors=majors, courses=courses)
 
 @students.route('my-profile')
 @login_required

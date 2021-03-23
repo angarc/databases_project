@@ -56,14 +56,6 @@ CREATE TABLE major (
     title varchar(255) NOT NULL
 );
 
-CREATE TABLE writes (
-    id SERIAL PRIMARY KEY,
-    author_id int NOT NULL,
-    review_id int,
-    foreign key (author_id) references student,
-    foreign key (review_id) references review
-);
-
 CREATE TABLE enrolls_in (
     id SERIAL PRIMARY KEY,
     student_id int NOT NULL,
@@ -96,37 +88,11 @@ CREATE TABLE studies (
     foreign key (major_id) references major
 );
 
-CREATE TABLE requires (
-    id SERIAL PRIMARY KEY,
-    major_id int,
-    course_code varchar(50) NOT NULL,
-    foreign key (major_id) references major,
-    foreign key (course_code) references course(code)
-);
-
 CREATE TABLE takes (
     id SERIAL PRIMARY KEY,
     student_id int,
     section_id int NOT NULL,
     foreign key (student_id) references student,
-    foreign key (section_id) references section
-);
-
-CREATE TABLE waitlisted (
-    id SERIAL PRIMARY KEY,
-    student_id int,
-    section_id int NOT NULL,
-    foreign key (student_id) references student,
-    foreign key (section_id) references section,
-    position int,
-    CHECK (position >= 1)
-);
-
-CREATE TABLE refers_to (
-    id SERIAL PRIMARY KEY,
-    review_id int,
-    section_id int NOT NULL,
-    foreign key (review_id) references review,
     foreign key (section_id) references section
 );
 
@@ -138,13 +104,6 @@ CREATE TABLE teaches (
     foreign key (section_id) references section
 );
 
-CREATE TABLE prerequisites (
-    id SERIAL PRIMARY KEY,
-    course_code varchar(50) NOT NULL,
-    prereq_code varchar(50),
-    foreign key (course_code) references course(code),
-    foreign key (prereq_code) references course(code)
-);
 
 -- ALTERATIONS (TRY NOT TO DELETE)
 DELETE FROM review;
@@ -152,12 +111,10 @@ DELETE FROM course;
 DELETE FROM department;   
 DELETE FROM instructor;   
 DELETE FROM major;        
-DELETE FROM requires;     
 DELETE FROM student;
 DELETE FROM studies;      
 DELETE FROM takes;        
 DELETE FROM teaches;      
-DELETE FROM waitlisted;
 
 ALTER TABLE student ADD email VARCHAR(255) NOT NULL;
 ALTER TABLE student ADD password VARCHAR(255) NOT NULL;
@@ -182,5 +139,10 @@ ALTER TABLE takes DROP CONSTRAINT takes_section_id_fkey;
 ALTER TABLE takes DROP COLUMN section_id;
 ALTER TABLE takes ADD course_id INT NOT NULL;
 ALTER TABLE takes ADD CONSTRAINT takes_course_id_fkey FOREIGN KEY (course_id) REFERENCES course(id);
+
+ALTER TABLE teaches DROP CONSTRAINT teaches_section_id_fkey;
+ALTER TABLE teaches DROP COLUMN section_id;
+ALTER TABLE teaches ADD course_id INT NOT NULL;
+ALTER TABLE teaches ADD CONSTRAINT teaches_course_id_fkey FOREIGN KEY (course_id) REFERENCES course(id);
 
 DROP TABLE section;

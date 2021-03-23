@@ -195,17 +195,17 @@ INSERT INTO refers_to(review_id, section_id) VALUES (8,6);
 INSERT INTO refers_to(review_id, section_id) VALUES (9,4);
 INSERT INTO refers_to(review_id, section_id) VALUES (10,6);
 
-INSERT INTO teaches(instructor_id, section_id) VALUES (2,1);
-INSERT INTO teaches(instructor_id, section_id) VALUES (3,2);
-INSERT INTO teaches(instructor_id, section_id) VALUES (4,3);
-INSERT INTO teaches(instructor_id, section_id) VALUES (1,4);
-INSERT INTO teaches(instructor_id, section_id) VALUES (7,5);
-INSERT INTO teaches(instructor_id, section_id) VALUES (6,6);
-INSERT INTO teaches(instructor_id, section_id) VALUES (8,7);
-INSERT INTO teaches(instructor_id, section_id) VALUES (9,8);
-INSERT INTO teaches(instructor_id, section_id) VALUES (5,9);
-INSERT INTO teaches(instructor_id, section_id) VALUES (10,10);
-INSERT INTO teaches(instructor_id, section_id) VALUES (4,11);
+INSERT INTO teaches(instructor_id, course_id) VALUES (2,1);
+INSERT INTO teaches(instructor_id, course_id) VALUES (3,2);
+INSERT INTO teaches(instructor_id, course_id) VALUES (4,3);
+INSERT INTO teaches(instructor_id, course_id) VALUES (1,4);
+INSERT INTO teaches(instructor_id, course_id) VALUES (7,5);
+INSERT INTO teaches(instructor_id, course_id) VALUES (6,6);
+INSERT INTO teaches(instructor_id, course_id) VALUES (8,7);
+INSERT INTO teaches(instructor_id, course_id) VALUES (9,8);
+INSERT INTO teaches(instructor_id, course_id) VALUES (5,9);
+INSERT INTO teaches(instructor_id, course_id) VALUES (10,10);
+INSERT INTO teaches(instructor_id, course_id) VALUES (4,11);
 
 INSERT INTO prerequisites(course_code, prereq_code) VALUES ('APMA E2101', 'MATH UN1201');
 INSERT INTO prerequisites(course_code, prereq_code) VALUES ('COMS W4156', 'COMS W3157');

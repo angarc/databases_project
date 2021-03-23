@@ -8,12 +8,6 @@ courses = Blueprint('courses', __name__)
 def show(id):
   course = g.conn.execute("""SELECT * FROM course c WHERE id=%(id)s""", {'id': id}).first()
 
-  cursor = g.conn.execute("""SELECT * FROM course c, section s WHERE course_id=%(id)s""")
-  sections = []
-  for record in cursor:
-    sections.append(record)
-  cursor.close()
-
   cursor = g.conn.execute("""SELECT * FROM review r WHERE course_id=%(id)s""")
   reviews = []
   for record in cursor:
@@ -21,3 +15,13 @@ def show(id):
   cursor.close()
 
   return render_template('course.html', course=course, reviews=reviews)
+
+@courses.route('/')
+def index():
+  cursor = g.conn.execute("""SELECT * FROM course""", {'id': id})
+  courses = []
+  for record in cursor:
+    courses.append(record)
+  cursor.close()
+
+  return render_template('course_index.html', courses=courses)

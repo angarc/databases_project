@@ -8,7 +8,7 @@ instructors = Blueprint('instructors', __name__)
 def show(id):
   instructor = g.conn.execute("""SELECT * FROM instructor i WHERE id=%(id)s""", {'id': id}).first()
 
-  cursor = g.conn.execute("""SELECT * FROM course c, section s, teaches t WHERE c.id = s.course_id AND s.id = t.section_id AND t.instructor_id=%(id)s""", {'id': id})
+  cursor = g.conn.execute("""SELECT * FROM course c, teaches t WHERE c.id = t.course_id AND t.instructor_id=%(id)s""", {'id': id})
   courses = []
   for record in cursor:
     courses.append(record['code'])
@@ -21,3 +21,13 @@ def show(id):
   cursor.close()
 
   return render_template('instructor.html', instructor=instructor, courses=courses, reviews=reviews)
+
+@instructors.route('/')
+def index():
+  cursor = g.conn.execute("""SELECT * FROM instructor""", {'id': id})
+  instructors = []
+  for record in cursor:
+    instructors.append(record)
+  cursor.close()
+
+  return render_template('instructor_index.html', instructors=instructors)

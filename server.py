@@ -82,11 +82,15 @@ if __name__ == "__main__":
     from auth import auth
     from students import students
     from swap_requests import swap_requests
+    from courses import courses
+    from instructors import instructors
 
     app.register_blueprint(views, url_prefix='/')
     app.register_blueprint(auth, url_prefix='/')
     app.register_blueprint(students, url_prefix='/students/')
     app.register_blueprint(swap_requests, url_prefix='/swap-requests/')
+    app.register_blueprint(courses, url_prefix='/courses/')
+    app.register_blueprint(instructors, url_prefix='/instructors/')
 
     login_manager = LoginManager()
     login_manager.login_view = 'auth.login'

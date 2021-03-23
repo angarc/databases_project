@@ -5,9 +5,16 @@
   <h1 class='mt-3'>{{student['full_name']}}</h1>
   <hr/>
   <p>
+    <strong>Enrolled in: </strong>
+    {% for school in schools: %}
+      <span class='badge badge-primary'>{{school}}</span>
+    {% endfor %}
+  </p>
+
+  <p>
     <strong>Majors in: </strong>
     {% for major in majors: %}
-      <span class='badge badge-primary'>{{major}}</span>
+      <span class='badge badge-primary'>{{major[0]}} - {{major[1]}}</span>
     {% endfor %}
   </p>
 
