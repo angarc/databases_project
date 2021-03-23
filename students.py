@@ -7,18 +7,20 @@ students = Blueprint('students', __name__)
 @students.route('/<int:id>/')
 @login_required
 def show(id):
-  student = g.conn.execute("""SELECT * FROM student s WHERE id=%(id)s""", {'id': id}).first()
+  cursor = g.conn.execute("""SELECT * FROM student s WHERE s.id=%(id)s""", {'id': id})
+  student = cursor.first()
+  cursor.close()
 
-  cursor = g.conn.execute("""SELECT * FROM enrolls_in e, school s WHERE e.school_id=s.id AND s.student_id=%(id)s""", {'id': id})
+  cursor = g.conn.execute("""SELECT * FROM enrolls_in e, school s WHERE e.school_id=s.id AND e.student_id=%(id)s""", {'id': id})
   schools = []
   for record in cursor:
     schools.append(record['s.name'])
   cursor.close()
 
-  cursor = g.conn.execute("""SELECT * FROM department d, offers o, major m, studies s WHERE d.id=o.department_id s.major_id = m.id AND s.student_id=%(id)s""", {'id': id})
+  cursor = g.conn.execute("""SELECT * FROM department d, offers o, major m, studies s WHERE d.id=o.department_id AND s.major_id = m.id AND s.student_id=%(id)s AND o.major_id = m.id""", {'id': id})
   majors = []
   for record in cursor:
-    majors.append((record['title'], record['department']))
+    majors.append((record['title'], record['name']))
   cursor.close()
 
   cursor = g.conn.execute("""SELECT * FROM course c, takes t WHERE c.id = t.course_id AND t.student_id=%(id)s""", {'id': id})
@@ -31,7 +33,9 @@ def show(id):
 @students.route('my-profile')
 @login_required
 def my_profile():
-  student = g.conn.execute("""SELECT * FROM student WHERE id=%(id)s""", {'id': current_user.id}).first()
+  cursor = g.conn.execute("""SELECT * FROM student WHERE id=%(id)s""", {'id': current_user.id})
+  student = cursor.first()
+  cursor.close()
   majors = []
   my_majors = []
 
@@ -70,19 +74,24 @@ def update_profile():
 
   print(courses)
 
-  g.conn.execute("""DELETE FROM studies WHERE student_id=%(id)s""", {'id': current_user.id})
+  cursor = g.conn.execute("""DELETE FROM studies WHERE student_id=%(id)s""", {'id': current_user.id})
+  cursor.close()
   for major in majors:
-    g.conn.execute("""INSERT INTO studies(student_id, major_id) VALUES(%(id)s, (SELECT id FROM major WHERE title=%(title)s));""", {
+    cursor = g.conn.execute("""INSERT INTO studies(student_id, major_id) VALUES(%(id)s, (SELECT id FROM major WHERE title=%(title)s));""", {
       'id': current_user.id,
       'title': major
     })
+    cursor.close()
 
-  g.conn.execute("""DELETE FROM takes WHERE student_id=%(id)s;""", {'id': current_user.id})
+  cursor = g.conn.execute("""DELETE FROM takes WHERE student_id=%(id)s;""", {'id': current_user.id})
+  cursor.close()
   for course in courses:
-    g.conn.execute("""INSERT INTO takes(student_id, course_id) VALUES(%(id)s, (SELECT id FROM course WHERE code=%(code)s));""", {
+    cursor = g.conn.execute("""INSERT INTO takes(student_id, course_id) VALUES(%(id)s, (SELECT id FROM course WHERE code=%(code)s));""", {
       'id': current_user.id,
       'code': course
     })
+    cursor.close()
   
+
   flash('Successfully updated profile', category='success')
   return redirect(url_for('students.my_profile'))

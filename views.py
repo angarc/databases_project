@@ -11,4 +11,5 @@ def home():
   students = []
   for record in cursor:
     students.append(record)
+  cursor.close()
   return render_template("home.html", students=students)

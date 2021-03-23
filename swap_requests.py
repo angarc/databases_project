@@ -65,6 +65,8 @@ def save_swap_request():
         'course_name': course_name,
         'course_code': course_code
       })
+
+      cursor.close()
     except:
       flash('Bad data entered', category='danger')
       return redirect(url_for('swap_requests.new_swap_request'))
@@ -77,10 +79,12 @@ def save_swap_request():
 @login_required
 def delete_request_matches(id):
   try:
-    g.conn.execute("""DELETE FROM swap_request WHERE id=%(id)s AND student_id=%(student_id)s;""", {
+    cursor = g.conn.execute("""DELETE FROM swap_request WHERE id=%(id)s AND student_id=%(student_id)s;""", {
       'id': id,
       'student_id': current_user.id
     })
+
+    cursor.close()
 
     flash('Successfully deleted swap request', category='success')
     return redirect(url_for('swap_requests.my_swap_requests'))
