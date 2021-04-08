@@ -187,3 +187,13 @@ DROP TABLE section;
 
 ALTER TABLE student ADD bio TEXT;
 ALTER TABLE student ADD clubs VARCHAR(100)[];
+
+CREATE TYPE donor_type AS (
+  full_name varchar(100),
+  total_donated numeric(10,2),
+  last_donation date
+);
+
+create table donors of donor_type (
+  primary key (full_name) 
+);

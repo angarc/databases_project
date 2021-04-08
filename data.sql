@@ -212,3 +212,15 @@ INSERT INTO prerequisites(course_code, prereq_code) VALUES ('COMS W4156', 'COMS 
 INSERT INTO prerequisites(course_code, prereq_code) VALUES ('COMS W3157', 'COMS W3134');
 INSERT INTO prerequisites(course_code, prereq_code) VALUES ('COMS W3134', 'COMS W1004');
 INSERT INTO prerequisites(course_code, prereq_code) VALUES ('MECE E4211', 'MECE E3301');
+
+
+INSERT INTO donors(full_name, total_donated, last_donation) VALUES('Bill Gates', 1, '2021-04-07');
+INSERT INTO donors(full_name, total_donated, last_donation) VALUES('Jeff Bezos', 9998, '2020-04-07');
+INSERT INTO donors(full_name, total_donated, last_donation) VALUES('The Zucc', 8888, '2019-04-07');
+INSERT INTO donors(full_name, total_donated, last_donation) VALUES('Elon Musk', 69420, '2028-01-07');
+INSERT INTO donors(full_name, total_donated, last_donation) VALUES('Tim Cook', 100000, '2020-04-07');
+INSERT INTO donors(full_name, total_donated, last_donation) VALUES('Sundar Pichai', 10000, '2021-02-07');
+INSERT INTO donors(full_name, total_donated, last_donation) VALUES('Satya Nadella', 10000, '2021-03-12');
+INSERT INTO donors(full_name, total_donated, last_donation) VALUES('Craig Federighi', 4000, '2021-03-11');
+INSERT INTO donors(full_name, total_donated, last_donation) VALUES('Larry Page', 100, '2018-04-07');
+INSERT INTO donors(full_name, total_donated, last_donation) VALUES('Sergey Brin', 100, '2018-12-07');
