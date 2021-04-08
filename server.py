@@ -70,7 +70,7 @@ if __name__ == "__main__":
 
     """
 
-    app.config['SECRET_KEY'] = ''
+    app.config['SECRET_KEY'] = 'oieanrstoienarstoienarsotienarsotienarsotin'
     app.config['SQLALCHEMY_DATABASE_URI'] = ''
     db.init_app(app)
 

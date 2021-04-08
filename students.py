@@ -60,8 +60,14 @@ def update_profile():
   email = request.form.get('email')
   majors = request.form.getlist('majors')
   courses = request.form.getlist('courses')
+  bio = request.form.get('bio')
+  clubs = request.form.getlist('clubs')
 
-  print(courses)
+  g.conn.execute("""UPDATE student SET bio=%(bio)s, clubs=%(clubs)s WHERE id=%(id)s;""", {
+      'bio': bio,
+      'id': current_user.id, 
+      'clubs': clubs
+  })
 
   g.conn.execute("""DELETE FROM studies WHERE student_id=%(id)s""", {'id': current_user.id})
   for major in majors:

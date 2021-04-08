@@ -184,3 +184,6 @@ ALTER TABLE takes ADD course_id INT NOT NULL;
 ALTER TABLE takes ADD CONSTRAINT takes_course_id_fkey FOREIGN KEY (course_id) REFERENCES course(id);
 
 DROP TABLE section;
+
+ALTER TABLE student ADD bio TEXT;
+ALTER TABLE student ADD clubs VARCHAR(100)[];
